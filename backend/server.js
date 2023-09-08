@@ -32,6 +32,7 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api/v1/users', require('./src/users/users-routes'));
+app.use('/auth', require('./src/auth/auth-routes'));
 
 // Default to 404 Page
 app.all('*', (req, res) => {
