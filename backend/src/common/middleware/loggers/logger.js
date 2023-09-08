@@ -10,7 +10,7 @@ const logEvents = async (message, logFileName) => {
   // Generic log template
   const logItem = `${dateTime}\t${uuid()}\t${message}\n`;
 
-  const logPath = path.join(__dirname, '../..', 'logs');
+  const logPath = path.join(__dirname, '../../../..', 'logs');
 
   try {
     if (!fs.existsSync(logPath)) {
