@@ -4,6 +4,7 @@ import Layout from './common/pages/Layout';
 import Public from './common/components/Public';
 import UsersDisplay from './features/users/UsersDisplay';
 import ClientProvider from './common/providers/ClientProvider';
+import Login from './common/pages/Login';
 import './App.scss';
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Public />} />
         <Route element={<ClientProvider />}>
+          <Route path="login" element={<Login />} />
           <Route path="users">
             <Route index element={<UsersDisplay />} />
           </Route>

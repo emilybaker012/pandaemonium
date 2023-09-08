@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-// Cr3eate axios instance
+// Create axios instance
 const axiosClient = axios.create();
 
 // Set base url
-axiosClient.defaults.baseURL = process.env.BASE_API_URL;
+axiosClient.defaults.baseURL = process.env.BASE_URL;
 
 // Set default headers
 axiosClient.defaults.headers = {
@@ -16,6 +16,7 @@ axiosClient.defaults.headers = {
 axiosClient.defaults.timeout = 2000; // Wait 2 sec
 
 const getReq = (URL) => {
+  console.log(axiosClient);
   return axiosClient.get(`/${URL}`).then((response) => { return response; });
 };
 
@@ -32,5 +33,5 @@ const deleteReq = (URL, payload) => {
 };
 
 export {
-  axiosClient, getReq, postReq, patchReq, deleteReq,
+  getReq, postReq, patchReq, deleteReq,
 };

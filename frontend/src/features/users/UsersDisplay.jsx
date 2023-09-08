@@ -1,14 +1,13 @@
 import React from 'react';
 import {
   useQuery,
-} from '@tanstack/react-query';
-
-import { getAllUsers } from './usersClient';
+} from '@tanstack/react-query'; import useUsers from './useUsers';
 
 const UsersDisplay = () => {
+  const users = useUsers();
   const { isLoading, error, data } = useQuery({
     queryKey: ['users'],
-    queryFn: () => { return getAllUsers(); },
+    queryFn: () => { return users.getAllUsers(); },
   });
 
   const userDisplay = data?.map((user) => {
