@@ -1,23 +1,50 @@
+// Uses CommmonJS instead of ES6
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const { logger } = require('./middleware/loggers/logger');
-const connectDB = require('./config/mongoDBConnection');
-const { logEvents } = require('./middleware/loggers/logger');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const { logger } = require('./src/common/middleware/loggers/logger');
+const connectDB = require('./src/common/config/mongoDBConnection');
+const { logEvents } = require('./src/common/middleware/loggers/logger');
+const corsOptions = require('./src/common/config/corsOptions');
+const errorHandler = require('./src/common/middleware/loggers/errorHandler');
 
+const PORT = process.env.PORT || 3500;
+
+// Create Express App
 const app = express();
 
 // Connect to the mongodb
 connectDB();
 
-// Env Variables
-const PORT = process.env.PORT || 3500;
-
 // Log requests
 app.use(logger);
 
+// Enable Cors
+app.use(cors(corsOptions));
+
+// Enable Json
+app.use(express.json());
+
+// Enable Cookie Parser
+app.use(cookieParser());
+
 // Routes
-app.use('/', require('./routes/root'));
+app.use('/api/v1/users', require('./src/users/users-routes'));
+
+// Default to 404 Page
+app.all('*', (req, res) => {
+  res.status(404);
+  if (req.accepts('json')) {
+    res.json({ message: 'Invalid API Endpoint' });
+  } else {
+    res.type('txt').send('Invalid API Endpoint');
+  }
+});
+
+// Error Handler
+app.use(errorHandler);
 
 // Listener for mongoose connection
 mongoose.connection.once('open', () => {
