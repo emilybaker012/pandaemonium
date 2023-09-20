@@ -34,5 +34,5 @@ const deleteReq = (URL, payload) => {
 };
 
 export {
-  getReq, postReq, patchReq, deleteReq,
+  getReq, postReq, patchReq, deleteReq, axiosClient,
 };

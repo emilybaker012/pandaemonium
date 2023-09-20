@@ -20,8 +20,6 @@ const useAuth = () => {
   const refresh = async () => {
     const { data } = await getReq(`${BASE_URL}/refresh`);
     setAuth((prev) => {
-      console.log(JSON.stringify(prev));
-      console.log(data.accessToken);
       return { ...prev, accessToken: data.accessToken };
     });
     return data;

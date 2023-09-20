@@ -6,8 +6,14 @@ import {
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Outlet } from 'react-router-dom';
 
-const ClientProvider = () => {
-  const queryClient = new QueryClient();
+const ReactQueryClientProvider = () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false, // default: true
+      },
+    },
+  });
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
@@ -16,4 +22,4 @@ const ClientProvider = () => {
   );
 };
 
-export default ClientProvider;
+export default ReactQueryClientProvider;
