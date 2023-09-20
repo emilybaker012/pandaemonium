@@ -12,16 +12,17 @@ axiosClient.defaults.headers = {
   Accept: 'application/json',
 };
 
+axiosClient.defaults.withCredentials = true;
+
 // Set default timeout
 axiosClient.defaults.timeout = 2000; // Wait 2 sec
 
 const getReq = (URL) => {
-  console.log(axiosClient);
   return axiosClient.get(`/${URL}`).then((response) => { return response; });
 };
 
-const postReq = (URL, payload) => {
-  return axiosClient.post(`/${URL}`, payload).then((response) => { return response; });
+const postReq = (URL, payload, config) => {
+  return axiosClient.post(`/${URL}`, payload, config).then((response) => { return response; });
 };
 
 const patchReq = (URL, payload) => {

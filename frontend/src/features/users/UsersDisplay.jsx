@@ -25,7 +25,6 @@ const UsersDisplay = () => {
       <h1>UsersDisplay</h1>
       <span>{userDisplay}</span>
     </div>
-
   );
 };
 

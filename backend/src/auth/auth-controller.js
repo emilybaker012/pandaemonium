@@ -34,9 +34,11 @@ const login = asyncHandler(async (req, res) => {
   );
 
   const refreshToken = jwt.sign(
-    { username: foundUser.username },
+    {
+      username: foundUser.username,
+    },
     process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: '1d' },
+    { expiresIn: '7d' },
   );
 
   // Create secure cookie with refresh token
@@ -66,8 +68,8 @@ const refresh = (req, res) => {
     asyncHandler(async (err, decoded) => {
       if (err) return res.status(403).json({ message: 'Forbidden' });
       const foundUser = await User.findOne({ username: decoded.username });
-
-      if (!foundUser) return res.status(401).json({ message: 'Unauthorized' });
+      console.log(decoded);
+      if (!foundUser) return res.status(402).json({ message: 'Cant find user' });
 
       const accessToken = jwt.sign(
         {
