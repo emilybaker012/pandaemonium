@@ -1,21 +1,35 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
 import React, {
-  useState, useRef, useEffect, useContext,
+  useState, useRef, useEffect,
 } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
-import AuthContext from '../../common/providers/AuthProvider';
+import useAuthContext from '../../common/hooks/useAuthContext';
 
 const LoginForm = () => {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth, persist, setPersist } = useAuthContext();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const userRef = useRef();
   const errRef = useRef();
+
+  const auth = useAuth();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState(undefined);
+
+  const togglePersist = () => {
+    setPersist(!persist);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('persist', persist);
+  }, [persist]);
 
   useEffect(() => {
     // focus on user
@@ -27,9 +41,6 @@ const LoginForm = () => {
     setErrMsg(undefined);
   }, [username, password]);
 
-  const auth = useAuth();
-  const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -38,7 +49,9 @@ const LoginForm = () => {
       );
       if (accessToken) {
         setAuth({ username, accessToken });
-        navigate('/dash');
+        setUsername('');
+        setPassword('');
+        navigate(from, { replace: true });
       } else {
         setErrMsg('Invalid username and/or password');
       }
@@ -88,6 +101,15 @@ const LoginForm = () => {
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Login
       </Button>
+      <div>
+        <input
+          type="checkbox"
+          id="persist"
+          onChange={togglePersist}
+          checked={persist}
+        />
+        <label htmlFor="persist" style={{ padding: '12px' }}> Trust This Device</label>
+      </div>
     </Form>
   );
 };
