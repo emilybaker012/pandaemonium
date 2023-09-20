@@ -11,6 +11,7 @@ const corsOptions = require('./src/common/config/corsOptions');
 const errorHandler = require('./src/common/middleware/loggers/errorHandler');
 
 const PORT = process.env.PORT || 3500;
+console.log(typeof PORT);
 
 // Create Express App
 const app = express();
@@ -32,6 +33,8 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api/v1/users', require('./src/users/users-routes'));
+app.use('/api/v1/posts', require('./src/posts/posts-routes'));
+app.use('/auth', require('./src/auth/auth-routes'));
 
 // Default to 404 Page
 app.all('*', (req, res) => {

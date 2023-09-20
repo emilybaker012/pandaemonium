@@ -24,7 +24,7 @@ export default defineConfig(({command, mode}) =>{
       },
     },
     define: {
-      'process.env.BASE_API_URL': JSON.stringify(env.BASE_API_URL)
+      'process.env.BASE_URL': JSON.stringify(env.BASE_URL)
     }
   }
 });

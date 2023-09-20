@@ -1,21 +1,33 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './common/pages/Layout';
-import Public from './common/components/Public';
+import Public from './common/pages/Public';
 import UsersDisplay from './features/users/UsersDisplay';
 import ClientProvider from './common/providers/ClientProvider';
+import Login from './common/pages/Login';
 import './App.scss';
+import PostsDisplay from './features/posts/PostsDisplay';
+import Dash from './common/pages/Dash';
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/">
         <Route index element={<Public />} />
+        <Route path="login" element={<Login />} />
         <Route element={<ClientProvider />}>
-          <Route path="users">
-            <Route index element={<UsersDisplay />} />
+          <Route element={<Layout />}>
+            <Route path="dash" index element={<Dash />} />
+            <Route path="users">
+              <Route index element={<UsersDisplay />} />
+            </Route>
+            {/* End Users */}
+            <Route path="posts">
+              <Route index element={<PostsDisplay />} />
+            </Route>
+            {/* End Posts */}
           </Route>
-          {/* End Users */}
+          {/* End Layout */}
         </Route>
         {/* End Client Provider */}
       </Route>
