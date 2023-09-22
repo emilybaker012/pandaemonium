@@ -4,9 +4,9 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Outlet } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const ReactQueryClientProvider = () => {
+const ReactQueryClientProvider = ({ children }) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
@@ -16,10 +16,17 @@ const ReactQueryClientProvider = () => {
   });
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      {children}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
+};
+
+ReactQueryClientProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
 };
 
 export default ReactQueryClientProvider;

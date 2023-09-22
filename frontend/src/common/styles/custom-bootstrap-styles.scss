@@ -1,0 +1,18 @@
+@import "./variables";
+
+.btn-primary {
+  @include button-variant($primary-color,$primary-color, white );
+  border-radius: #{$button-border-radius};
+  --bs-btn-disabled-bg: var(--pk-light-gray);
+  --bs-btn-disabled-border-color: var(--bs-btn-disabled-bg);
+  --bs-btn-disabled-color: var(--pk-gray);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-active-color: var(--bs-white);
+  --bs-btn-padding-y: .5rem;
+  --bs-btn-padding-x: 1.5rem;
+
+}
+
+.btn-secondary{
+  border-radius: #{$button-border-radius};
+}

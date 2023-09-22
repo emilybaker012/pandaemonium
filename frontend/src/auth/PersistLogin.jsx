@@ -2,12 +2,12 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import useRefeshToken from '../hooks/useRefeshToken';
-import useAuthContext from '../hooks/useAuthContext';
+import useAuthContext from './hooks/useAuthContext';
+import useAuth from './hooks/useAuth';
 
 const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const refresh = useRefeshToken();
+  const authy = useAuth();
   const { auth, persist } = useAuthContext();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const PersistLogin = () => {
 
     const verifyRefreshToken = async () => {
       try {
-        await refresh();
+        await authy.refresh();
       } catch (err) {
         // Error
       } finally {

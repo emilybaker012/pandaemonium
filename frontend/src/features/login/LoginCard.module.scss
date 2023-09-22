@@ -1,0 +1,47 @@
+.cardContainer {
+    padding: 12px;
+    background-color: rgba(248, 247, 247, 0.188);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    font-family: 'Itim', cursive;
+    color:white;
+    text-transform: uppercase;
+}
+
+.stack {
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    padding-top: 12px;
+    font-size: 2rem;
+}
+
+.noButton {
+    border: none;
+    background-color: transparent;
+    color: rgb(184, 184, 184);
+    font-size: .9rem;
+    &:hover{
+        color:rgb(165, 165, 165);
+        transform: scale(1.1);
+    }
+    text-decoration: underline;
+}
+
+.logo{
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.signUpLabel{
+    font-size: .9rem;
+}
+
+.loginForm{
+    margin: 24px;
+    padding: 0px 12px;
+}

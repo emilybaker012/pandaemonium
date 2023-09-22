@@ -11,7 +11,7 @@ export default defineConfig(({command, mode}) =>{
         fix: true,
         exclude: [/virtual:/, /node_modules/],
       },
-    )],
+    ),
     server: {
       port: 3000,
       hmr: {

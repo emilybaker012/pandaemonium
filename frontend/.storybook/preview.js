@@ -1,5 +1,6 @@
 /** @type { import('@storybook/react').Preview } */
-import '../src/App.scss';
+import '../src/common/styles/custom.scss';
+
 const preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },

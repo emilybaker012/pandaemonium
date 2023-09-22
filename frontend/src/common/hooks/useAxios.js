@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react';
-import { axiosClient } from '../client/axiosInstance';
-import useAuth from '../../features/auth/useAuth';
-import AuthContext from '../providers/AuthProvider';
+import axiosClient from '../client/axiosInstance';
+import useAuth from '../../auth/hooks/useAuth';
+import AuthContext from '../../auth/hooks/useAuthContext';
 
 const useAxios = () => {
   const { auth } = useContext(AuthContext);

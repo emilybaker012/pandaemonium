@@ -1,0 +1,14 @@
+@import "./variables";
+//Root css variables that are defined by scss variables
+:root{
+    //Colors
+    --pk-primary : #{$primary-color};
+    --pk-danger: #{$danger-color};
+    --pk-success: #{$success-color};
+
+    --pk-primary-darken: #{$primary-darken-color};
+
+    --pk-lightest-gray: #{$lightest-gray};
+    --pk-light-gray: #{$light-gray};
+    --pk-gray: #{$gray};
+}

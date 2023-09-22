@@ -1,0 +1,41 @@
+.formContainer{
+    width: 100%;
+}
+
+.label {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color:white
+}
+
+.control {
+    background-color: rgb(89, 89, 89);
+    
+}
+
+.noButton {
+    border: none;
+    background-color: transparent;
+    color: rgb(184, 184, 184);
+    font-size: .75rem;
+    &:hover{
+        color:rgb(165, 165, 165);
+    }
+    &:active{
+        color:rgb(142, 142, 142);
+    }
+    text-decoration: underline;
+
+    display: block;
+    margin: 0 auto;
+    padding-top: 12px;
+}
+
+.rememberMe{
+    display: flex;
+    gap: 6px;
+    font-size: .9rem;
+    color: rgb(184, 184, 184);
+    padding-bottom: 24px;
+}
+

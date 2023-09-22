@@ -1,0 +1,23 @@
+//Allows us to use bootstrap fuctions
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+//Colors
+$primary-color: #517201; 
+$danger-color: #C84A41;
+$success-color: #6CB768;
+$primary-darken-color: #1886b2;
+
+$lightest-gray: $gray-100;
+$light-gray: $gray-300;
+$gray: $gray-600;
+
+//Buton Styling
+$button-border-radius: 25px;
+
+//Bamboo Colors
+$light-green: #99bc21;
+$darker-green: #517201;
+$dark-green: #394803;
+$brown: #392B05;
