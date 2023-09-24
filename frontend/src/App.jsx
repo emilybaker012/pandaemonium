@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import RequireAuth from './auth/RequireAuth';
 import PersistLogin from './auth/PersistLogin';
 import Home from './pages/Home';
-import Login from './pages/Login';
+import LoginPage from './pages/LoginPage';
 import Layout from './pages/components/Layout';
 import NotFound from './pages/NotFound';
 
@@ -15,7 +15,7 @@ const App = () => {
     <Routes>
       <Route path="/">
         {/* Public Routes */}
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<LoginPage />} />
 
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>

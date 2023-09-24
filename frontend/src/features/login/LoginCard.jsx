@@ -11,7 +11,7 @@ const LoginCard = () => {
       <Stack className={styles.stack}>
         <span className={styles.title}>Welcome</span>
         <Stack className={styles.stack} direction="horizontal" gap={1}>
-          <span className={styles.signUpLabel}>{'Don\'t have and account?'} </span>
+          <span className={styles.signUpLabel}>{'Don\'t have an account?'} </span>
           <button type="button" className={styles.noButton}> Sign Up</button>
         </Stack>
         <LoginForm className={styles.loginForm} />
