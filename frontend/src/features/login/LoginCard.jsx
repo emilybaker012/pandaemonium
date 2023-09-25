@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Stack } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Stack from 'react-bootstrap/Stack';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import styles from './LoginCard.module.scss';

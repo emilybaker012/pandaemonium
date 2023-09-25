@@ -1,7 +1,6 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
-
 import LoginPage from '../../pages/LoginPage';
+import { Decorators } from '../Decorators';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -15,7 +14,7 @@ export default {
     layout: 'fullscreen',
   },
   decorators: [
-    (Story) => { return (<MemoryRouter><Story /></MemoryRouter>); },
+    Decorators,
   ],
 };
 

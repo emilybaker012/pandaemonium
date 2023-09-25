@@ -9,18 +9,18 @@ const User = require('../users/User-model');
 const login = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
-    return res.status(400).json({ error: 'All fields are required' });
+    return res.status(400).json({ message: 'All fields are required' });
   }
 
   const foundUser = await User.findOne({ username }).exec();
 
   if (!foundUser || !foundUser.active) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({ message: 'Unauthorized' });
   }
 
   const match = await bcrypt.compare(password, foundUser.password);
 
-  if (!match) return res.status(401).json({ error: 'Unauthorized' });
+  if (!match) return res.status(401).json({ message: 'Unauthorized' });
 
   const accessToken = jwt.sign(
     {
@@ -30,7 +30,7 @@ const login = asyncHandler(async (req, res) => {
       },
     },
     process.env.ACCESS_TOKEN_SECRET,
-    { expiresIn: '1m' },
+    { expiresIn: '10s' },
   );
 
   const refreshToken = jwt.sign(
@@ -38,7 +38,7 @@ const login = asyncHandler(async (req, res) => {
       username: foundUser.username,
     },
     process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: '1d' },
+    { expiresIn: '30s' },
   );
 
   // Create secure cookie with refresh token
@@ -58,7 +58,7 @@ const login = asyncHandler(async (req, res) => {
 // @access Public
 const refresh = (req, res) => {
   const { cookies } = req;
-  if (!cookies?.jwt) return res.status(200).json({ error: 'No cookie found' });
+  if (!cookies?.jwt) return res.status(200).json({ message: 'No cookie found' });
 
   const refreshToken = cookies.jwt;
 
@@ -77,7 +77,7 @@ const refresh = (req, res) => {
           },
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: '1m' },
+        { expiresIn: '30s' },
       );
 
       res.json({ username, roles, accessToken });
