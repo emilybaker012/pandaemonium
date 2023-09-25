@@ -1,37 +1,33 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Layout from './common/pages/Layout';
-import Public from './common/pages/Public';
-import UsersDisplay from './features/users/UsersDisplay';
-import ReactQueryClientProvider from './common/providers/ReactQueryClientProvider';
-import Login from './common/pages/Login';
-import './App.scss';
-import PostsDisplay from './features/posts/PostsDisplay';
-import Dash from './common/pages/Dash';
-import NotFound from './common/pages/NotFound';
-import RequireAuth from './common/components/RequireAuth';
-import PersistLogin from './common/components/PersistLogin';
+
+import RequireAuth from './auth/RequireAuth';
+import PersistLogin from './auth/PersistLogin';
+import Home from './pages/Home';
+import LoginPage from './pages/LoginPage';
+import Layout from './pages/components/Layout';
+import NotFound from './pages/NotFound';
+
+import ForgotPassword from './pages/ForgotPassword';
+import SignUp from './pages/SignUp';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/">
         {/* Public Routes */}
-        <Route index element={<Public />} />
-        <Route path="login" element={<Login />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="forgot" element={<ForgotPassword />} />
+        <Route path="signup" element={<SignUp />} />
 
         {/* Protected Routes */}
         <Route element={<PersistLogin />}>
           <Route element={<RequireAuth />}>
-            <Route element={<ReactQueryClientProvider />}>
-              <Route element={<Layout />}>
-                <Route path="dash" element={<Dash />} />
-                <Route path="users" element={<UsersDisplay />} />
-                <Route path="posts" element={<PostsDisplay />} />
-              </Route> {/* End Layout */}
-            </Route> {/* End Client Provider */}
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+            </Route> {/* End Layout */}
           </Route> {/* End Require Auth */}
-        </Route> {/* End Persist Login */}
+        </Route>{/* End Persist Login */}
 
         {/** Sample Role Based Authorization
          *  <Route element={<RequireAuth allowedRoles={"Admin"}}/>

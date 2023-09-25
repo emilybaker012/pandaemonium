@@ -1,0 +1,20 @@
+//Import order matters!
+@import "./variables";
+
+//Create custom Bootstrap theme
+$theme-colors: map-merge($theme-colors, (
+  "primary": $primary-color,
+  "danger" : $danger-color,
+  "success": $success-color,
+));
+
+//Import Bootstrap after creating custom theme so that custom theme gets pulled in
+@import "./custom-bootstrap-styles";
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+//Import font family
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+//Import root css variables
+@import "./root";

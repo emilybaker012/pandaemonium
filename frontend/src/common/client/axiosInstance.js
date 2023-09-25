@@ -12,27 +12,10 @@ axiosClient.defaults.headers = {
   Accept: 'application/json',
 };
 
+// Pass cookies in the header
 axiosClient.defaults.withCredentials = true;
 
 // Set default timeout
 axiosClient.defaults.timeout = 2000; // Wait 2 sec
 
-const getReq = (URL) => {
-  return axiosClient.get(`/${URL}`).then((response) => { return response; });
-};
-
-const postReq = (URL, payload, config) => {
-  return axiosClient.post(`/${URL}`, payload, config).then((response) => { return response; });
-};
-
-const patchReq = (URL, payload) => {
-  return axiosClient.patch(`/${URL}`, payload).then((response) => { return response; });
-};
-
-const deleteReq = (URL, payload) => {
-  return axiosClient.delete(`/${URL}`, payload).then((response) => { return response; });
-};
-
-export {
-  getReq, postReq, patchReq, deleteReq, axiosClient,
-};
+export default axiosClient;

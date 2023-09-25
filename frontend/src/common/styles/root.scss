@@ -1,0 +1,24 @@
+@import "./variables";
+//Root css variables that are defined by scss variables
+:root{
+    //Colors
+    --panda-primary : #{$primary-color};
+    --panda-danger: #{$danger-color};
+    --panda-success: #{$success-color};
+
+    --panda-darkest-gray: #{$darkest-gray};
+    --panda-darker-gray: #{$darker-gray};
+    --panda-dark-gray: #{$dark-gray};
+    --panda-gray: #{$gray};
+    --panda-lighter-gray: #{$lighter-gray};
+    --panda-light-gray: #{$light-gray};
+    --panda-lightest-gray: #{$lightest-gray};
+
+    --bamboo-green : #{$darker-green};
+    --bamboo-green-dark: #{$dark-green};
+    --bamboo-green-light: #{$light-green};
+    --bamboo-brown: #{$brown};
+
+
+
+}

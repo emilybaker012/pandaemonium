@@ -4,25 +4,21 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { HiLogout } from 'react-icons/hi';
-import { useQueryClient } from '@tanstack/react-query';
 import styles from './Layout.module.scss';
-import Sidebar from '../components/Sidebar';
-import useAuthContext from '../hooks/useAuthContext';
-import useAuth from '../../features/auth/useAuth';
+import Sidebar from './Sidebar';
+import useAuth from '../../auth/hooks/useAuth';
+import useAuthContext from '../../auth/hooks/useAuthContext';
 
 const Layout = () => {
-  const navigate = useNavigate();
-  const { auth } = useAuthContext();
   const authy = useAuth();
-  const queryClient = useQueryClient();
+  const { setAuth, auth } = useAuthContext();
+  const navigate = useNavigate();
   const handleLogOut = async () => {
-    console.log('logging out');
     // Remove all cached data
-    queryClient.removeQueries();
-
+    setAuth({});
     // Clear cookies
-    await authy.logout();
-    navigate('login');
+    authy.logout();
+    navigate('/login');
   };
 
   return (
@@ -30,7 +26,7 @@ const Layout = () => {
       <Row className={styles.header}>
         <Col xs={6} />
         <Col xs={4} className={styles.logout}>
-          Welcome {auth.username}
+          Welcome, {auth.username}
         </Col>
         <Col xs="auto" className={styles.logout}>
           <HiLogout onClick={handleLogOut} size={24} />

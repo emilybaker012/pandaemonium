@@ -1,0 +1,16 @@
+@import '../../common/styles/variables.scss';
+
+.link{
+    border: none;
+    background-color: transparent;
+    color: var(--panda-lighter-gray);
+    font-size: .9rem;
+    &:hover{
+        color: lighten($lighter-gray, 10%);
+        transform: scale(1.1);
+    }
+    &:active{
+        color: lighten($lighter-gray, 20%);
+    }
+    text-decoration: underline;
+}

@@ -1,0 +1,20 @@
+@import '../../common/styles/variables.scss';
+
+.formContainer{
+    width: 100%;
+}
+
+.label {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color:white
+}
+
+.rememberMe{
+    display: flex;
+    gap: 6px;
+    font-size: .9rem;
+    color: var(--panda-light-gray);
+    padding-bottom: 24px;
+}
+
