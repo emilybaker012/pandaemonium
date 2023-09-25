@@ -1,4 +1,5 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 
 import LoginPage from '../../pages/LoginPage';
 
@@ -13,13 +14,14 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => { return (<MemoryRouter><Story /></MemoryRouter>); },
+  ],
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => { return <LoginPage {...args} />; };
 
 export const Default = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
   backgroundColor: 'gray',
 };

@@ -10,15 +10,7 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = () => {
   return (
-    <div style={{
-      height: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}
-    >
-      <LoginCard />;
-    </div>
+    <LoginCard />
   );
 };
 

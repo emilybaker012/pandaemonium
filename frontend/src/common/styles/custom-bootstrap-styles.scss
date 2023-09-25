@@ -2,17 +2,32 @@
 
 .btn-primary {
   @include button-variant($primary-color,$primary-color, white );
-  border-radius: #{$button-border-radius};
-  --bs-btn-disabled-bg: var(--pk-light-gray);
+  border-radius: $button-border-radius !important;
+  --bs-btn-disabled-bg: var(--panda-light-gray);
   --bs-btn-disabled-border-color: var(--bs-btn-disabled-bg);
-  --bs-btn-disabled-color: var(--pk-gray);
+  --bs-btn-disabled-color: var(--panda-gray);
   --bs-btn-hover-color: var(--bs-white);
   --bs-btn-active-color: var(--bs-white);
   --bs-btn-padding-y: .5rem;
   --bs-btn-padding-x: 1.5rem;
-
 }
 
 .btn-secondary{
-  border-radius: #{$button-border-radius};
+  border-radius: #{$button-border-radius} ;
+}
+
+.form-control {
+  background-color: $gray !important;
+  border: none !important;
+  color: white !important;
+
+  &:focus{
+      color: white;
+      background-color: lighten($gray, 10%) !important;
+      box-shadow: 0px 2px 10px 1px var(--panda-dark-gray) !important;
+  }
+
+  &::placeholder{
+      color: var(--panda-lightest-gray) !important;
+  }
 }

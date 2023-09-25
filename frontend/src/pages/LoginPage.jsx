@@ -1,19 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import LoginCard from '../features/login/LoginCard';
+import styles from './LoginPage.module.scss';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const handleSignUp = () => {
+    navigate('/signup');
+  };
+
+  const handleForgotPassword = () => {
+    navigate('/forgot');
+  };
   return (
     <div
-      style={{
-        backgroundColor: 'gray',
-        width: '100%',
-        height: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-        display: 'flex',
-      }}
+      className={styles.loginPage}
     >
-      <LoginCard />
+      <LoginCard
+        className={styles.loginCard}
+        onForgotPassword={handleForgotPassword}
+        onSignUp={handleSignUp}
+      />
     </div>
 
   );

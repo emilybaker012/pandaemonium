@@ -1,3 +1,5 @@
+@import '../../common/styles/variables.scss';
+
 .formContainer{
     width: 100%;
 }
@@ -8,35 +10,11 @@
     color:white
 }
 
-.control {
-    background-color: rgb(89, 89, 89);
-    
-}
-
-.noButton {
-    border: none;
-    background-color: transparent;
-    color: rgb(184, 184, 184);
-    font-size: .75rem;
-    &:hover{
-        color:rgb(165, 165, 165);
-        transform: scale(1.1);
-    }
-    &:active{
-        color:rgb(142, 142, 142);
-    }
-    text-decoration: underline;
-
-    display: block;
-    margin: 0 auto;
-    padding-top: 12px;
-}
-
 .rememberMe{
     display: flex;
     gap: 6px;
     font-size: .9rem;
-    color: rgb(184, 184, 184);
+    color: var(--panda-light-gray);
     padding-bottom: 24px;
 }
 

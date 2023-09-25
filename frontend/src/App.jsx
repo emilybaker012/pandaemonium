@@ -8,7 +8,8 @@ import LoginPage from './pages/LoginPage';
 import Layout from './pages/components/Layout';
 import NotFound from './pages/NotFound';
 
-import './common/styles/custom.scss';
+import ForgotPassword from './pages/ForgotPassword';
+import SignUp from './pages/SignUp';
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
       <Route path="/">
         {/* Public Routes */}
         <Route path="login" element={<LoginPage />} />
+        <Route path="forgot" element={<ForgotPassword />} />
+        <Route path="signup" element={<SignUp />} />
 
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>

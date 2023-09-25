@@ -1,4 +1,3 @@
-/** @type { import('@storybook/react').Preview } */
 import '../src/common/styles/custom.scss';
 
 const preview = {

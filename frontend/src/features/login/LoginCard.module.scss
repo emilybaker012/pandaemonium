@@ -1,6 +1,8 @@
+@import '../../common/styles/variables.scss';
+
 .cardContainer {
-    padding: 12px;
-    background-color: rgba(248, 247, 247, 0.188);
+    padding: 12px 12px 24px 12px;
+    background-color: var(--panda-dark-gray);
     backdrop-filter: blur(5px);
     border-radius: 12px;
     font-family: 'Itim', cursive;

@@ -2,13 +2,23 @@
 //Root css variables that are defined by scss variables
 :root{
     //Colors
-    --pk-primary : #{$primary-color};
-    --pk-danger: #{$danger-color};
-    --pk-success: #{$success-color};
+    --panda-primary : #{$primary-color};
+    --panda-danger: #{$danger-color};
+    --panda-success: #{$success-color};
 
-    --pk-primary-darken: #{$primary-darken-color};
+    --panda-darkest-gray: #{$darkest-gray};
+    --panda-darker-gray: #{$darker-gray};
+    --panda-dark-gray: #{$dark-gray};
+    --panda-gray: #{$gray};
+    --panda-lighter-gray: #{$lighter-gray};
+    --panda-light-gray: #{$light-gray};
+    --panda-lightest-gray: #{$lightest-gray};
 
-    --pk-lightest-gray: #{$lightest-gray};
-    --pk-light-gray: #{$light-gray};
-    --pk-gray: #{$gray};
+    --bamboo-green : #{$darker-green};
+    --bamboo-green-dark: #{$dark-green};
+    --bamboo-green-light: #{$light-green};
+    --bamboo-brown: #{$brown};
+
+
+
 }

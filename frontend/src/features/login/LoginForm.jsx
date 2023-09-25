@@ -8,7 +8,6 @@ import clsx from 'clsx';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styles from './LoginForm.module.scss';
-import './style.scss';
 
 const LoginForm = ({ className, persist, togglePersist }) => {
   const formClasses = clsx({
@@ -37,9 +36,6 @@ const LoginForm = ({ className, persist, togglePersist }) => {
     // Click button
   };
 
-  const handleForgotPassword = (e) => {
-    // navigate to forgot password page
-  };
   return (
     <Form
       className={formClasses}
@@ -83,7 +79,6 @@ const LoginForm = ({ className, persist, togglePersist }) => {
       <Button variant="primary" style={{ width: '100%' }} type="submit" onClick={handleSubmit}>
         Login
       </Button>
-      <button type="button" className={styles.noButton} onClick={handleForgotPassword}> Forgot Password</button>
     </Form>
   );
 };
