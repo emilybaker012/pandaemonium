@@ -9,18 +9,18 @@ const User = require('../users/User-model');
 const login = asyncHandler(async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
-    return res.status(400).json({ message: 'All fields are required' });
+    return res.status(400).json({ error: 'All fields are required' });
   }
 
   const foundUser = await User.findOne({ username }).exec();
 
   if (!foundUser || !foundUser.active) {
-    return res.status(401).json({ message: 'Unauthorized' });
+    return res.status(401).json({ error: 'Unauthorized' });
   }
 
   const match = await bcrypt.compare(password, foundUser.password);
 
-  if (!match) return res.status(401).json({ message: 'Unauthorized' });
+  if (!match) return res.status(401).json({ error: 'Unauthorized' });
 
   const accessToken = jwt.sign(
     {
@@ -58,7 +58,7 @@ const login = asyncHandler(async (req, res) => {
 // @access Public
 const refresh = (req, res) => {
   const { cookies } = req;
-  if (!cookies?.jwt) return res.status(401).json({ message: 'Unauthorized' });
+  if (!cookies?.jwt) return res.status(200).json({ error: 'No cookie found' });
 
   const refreshToken = cookies.jwt;
 

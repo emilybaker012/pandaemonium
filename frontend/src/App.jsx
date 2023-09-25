@@ -21,13 +21,13 @@ const App = () => {
         <Route path="signup" element={<SignUp />} />
 
         {/* Protected Routes */}
-        <Route element={<RequireAuth />}>
-          <Route element={<PersistLogin />}>
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth />}>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
             </Route> {/* End Layout */}
-          </Route> {/* End Persist Login */}
-        </Route> {/* End Require Auth */}
+          </Route> {/* End Require Auth */}
+        </Route>{/* End Persist Login */}
 
         {/** Sample Role Based Authorization
          *  <Route element={<RequireAuth allowedRoles={"Admin"}}/>

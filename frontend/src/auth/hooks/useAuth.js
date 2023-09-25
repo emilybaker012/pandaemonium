@@ -5,8 +5,8 @@ const useAuth = () => {
   const BASE_URL = 'auth';
   const { setAuth } = useAuthContext();
 
-  const login = async () => {
-    const { data } = await axiosClient.post(`${BASE_URL}`);
+  const login = async (body) => {
+    const { data } = await axiosClient.post(`${BASE_URL}`, body);
     return data;
   };
 
@@ -23,7 +23,7 @@ const useAuth = () => {
   };
 
   const logout = async () => {
-    const { data } = await axiosClient.get(`${BASE_URL}/logout`);
+    const { data } = await axiosClient.post(`${BASE_URL}/logout`);
     return data;
   };
 
