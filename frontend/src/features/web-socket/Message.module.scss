@@ -1,0 +1,12 @@
+.messageContainer {
+    border-radius: .325rem;
+    min-width: 500px;
+    background-color: var(--panda-light-gray);
+    padding: 12px;
+}
+
+.textInput {
+    &:active{
+        box-shadow: none !important;
+    }
+}
