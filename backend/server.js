@@ -4,6 +4,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const io = require('socket.io')(3600, {
+  cors: {
+    origin: [
+      'http://localhost:3000',
+      'https://emilypkdev.ngrok.io'],
+  },
+});
 const { logger } = require('./src/common/middleware/loggers/logger');
 const connectDB = require('./src/common/config/mongoDBConnection');
 const { logEvents } = require('./src/common/middleware/loggers/logger');
@@ -11,7 +18,22 @@ const corsOptions = require('./src/common/config/corsOptions');
 const errorHandler = require('./src/common/middleware/loggers/errorHandler');
 
 const PORT = process.env.PORT || 3500;
-console.log(typeof PORT);
+
+// Create websocket server
+io.on('connection', (socket) => {
+  let user = '';
+  socket.on('connect-user', (data) => {
+    user = data;
+    io.emit('new-user', `${data} has joined the chat`);
+  });
+  socket.on('send-message', (data) => {
+    io.emit('recieve-message', data);
+  });
+
+  socket.on('disconnect', () => {
+    io.emit('remove-user', `${user} left the chat`);
+  });
+});
 
 // Create Express App
 const app = express();

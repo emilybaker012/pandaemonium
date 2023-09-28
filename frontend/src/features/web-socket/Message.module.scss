@@ -1,0 +1,49 @@
+@import '../../common/styles/variables.scss';
+.messageContainer {
+    border-radius: .325rem;
+    min-width: 500px;
+    background-color: var(--panda-light-gray);
+    padding: 12px;
+    white-space: pre-wrap;
+}
+
+.textInput {
+    display: flex;
+    border-radius: 25px !important;
+    resize: none;
+    white-space: pre-wrap;
+    height: 40px;
+    line-height: 20px;
+    justify-content: center;
+}
+
+.send {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translate(0, -50%);
+    color: var(--panda-light-gray);
+    font-size: 1.5rem;
+    margin: auto;
+    text-align: center;
+
+    &:hover{
+        color: $light-green;
+        font-size: 1.8rem;
+    }
+
+    &:active{
+        color: darken($light-green, 5%);
+    }
+}
+
+.form{
+    position: relative;
+}
+
+.chatInfo {
+    display: flex;
+    justify-content: center;
+    font-size: .8rem;
+    color: var(--panda-lighter-gray);
+}

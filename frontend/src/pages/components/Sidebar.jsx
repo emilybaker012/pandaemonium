@@ -1,8 +1,14 @@
 import React from 'react';
+import Stack from 'react-bootstrap/esm/Stack';
 
 const Sidebar = () => {
   return (
-    <div>Sidebar</div>
+    <Stack style={
+      {
+        backgroundColor: 'var(--panda-gray)',
+      }
+    }
+    />
   );
 };
 

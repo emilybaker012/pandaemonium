@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Outlet, useNavigate } from 'react-router-dom';
@@ -8,6 +7,7 @@ import styles from './Layout.module.scss';
 import Sidebar from './Sidebar';
 import useAuth from '../../auth/hooks/useAuth';
 import useAuthContext from '../../auth/hooks/useAuthContext';
+import logo from '../../assets/pandae.svg';
 
 const Layout = () => {
   const authy = useAuth();
@@ -17,16 +17,32 @@ const Layout = () => {
     // Remove all cached data
     setAuth({});
     // Clear cookies
-    authy.logout();
+    await authy.logout();
     navigate('/login');
   };
 
   return (
-    <Container className={styles.container}>
+    <div className={styles.container}>
       <Row className={styles.header}>
-        <Col xs={6} />
+        <Col
+          xs={6}
+          style={{
+            border: '1px solid red',
+            display: 'flex',
+            alignItems: 'start',
+            justifySelf: 'flex-start',
+          }}
+        >
+          <img
+            src={logo}
+            alt="pandae-logo"
+            style={{
+              maxWidth: '150px',
+            }}
+          />
+        </Col>
         <Col xs={4} className={styles.logout}>
-          Welcome, {auth.username}
+          Welcome, {auth?.username}
         </Col>
         <Col xs="auto" className={styles.logout}>
           <HiLogout onClick={handleLogOut} size={24} />
@@ -41,7 +57,7 @@ const Layout = () => {
           <Outlet />
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

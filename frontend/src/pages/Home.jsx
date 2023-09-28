@@ -1,8 +1,9 @@
 import React from 'react';
+import Message from '../features/web-socket/Message';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div><Message /></div>
   );
 };
 
