@@ -7,7 +7,7 @@ const cors = require('cors');
 const io = require('socket.io')(3600, {
   cors: {
     origin: [
-      'http://localhost:3500',
+      'http://localhost:3000',
       'https://emilypkdev.ngrok.io'],
   },
 });
@@ -21,13 +21,17 @@ const PORT = process.env.PORT || 3500;
 
 // Create websocket server
 io.on('connection', (socket) => {
+  let user = '';
   socket.on('connect-user', (data) => {
-    console.log(data);
-    io.emit('new-user', `${data.username} has joined the chat`);
+    user = data;
+    io.emit('new-user', `${data} has joined the chat`);
   });
   socket.on('send-message', (data) => {
-    console.log(`Got new message ${data.username} : ${data.message}`);
-    io.emit('recieve-message', `${data.username}: ${data.message}`);
+    io.emit('recieve-message', data);
+  });
+
+  socket.on('disconnect', () => {
+    io.emit('remove-user', `${user} left the chat`);
   });
 });
 

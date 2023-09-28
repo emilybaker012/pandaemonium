@@ -23,8 +23,8 @@
 
   &:focus{
       color: white;
-      background-color: lighten($gray, 10%) !important;
-      box-shadow: 0px 2px 10px 1px var(--panda-dark-gray) !important;
+      background-color: lighten($gray, 2%) !important;
+      box-shadow: none !important;
   }
 
   &::placeholder{

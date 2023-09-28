@@ -11,6 +11,15 @@ const useSocket = () => {
     return () => { newSocket.close(); };
   }, []);
 
-  return { socket };
+  const emit = ({ key, message }) => {
+    socket.emit(key, message);
+  };
+
+  const on = ({ key, func }) => {
+    socket.on(key, (data) => { return func(data); });
+  };
+
+  return { socket, emit, on };
 };
+
 export default useSocket;

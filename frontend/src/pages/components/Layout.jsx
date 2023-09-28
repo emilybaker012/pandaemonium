@@ -17,7 +17,9 @@ const Layout = () => {
     // Remove all cached data
     setAuth({});
     // Clear cookies
-    authy.logout();
+    console.log('Logging out');
+    await authy.logout();
+    console.log('Logged out');
     navigate('/login');
   };
 
