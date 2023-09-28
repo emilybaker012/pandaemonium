@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { BiError } from 'react-icons/bi';
 import styles from './LoginError.module.scss';
 
-const LoginError = ({ children, hidden }) => {
+const LoginError = ({ children, hidden, ref }) => {
   return (
     <div
+      ref={ref}
       className={styles.formErrorContainer}
       style={{
         display: hidden ? 'none' : 'flex',
@@ -17,8 +18,14 @@ const LoginError = ({ children, hidden }) => {
 };
 
 LoginError.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string,
   hidden: PropTypes.bool.isRequired,
+  ref: PropTypes.instanceOf(Object),
+};
+
+LoginError.defaultProps = {
+  children: undefined,
+  ref: undefined,
 };
 
 export default LoginError;

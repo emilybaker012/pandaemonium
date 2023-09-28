@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import LoginCard from '../features/login/LoginCard';
 import styles from './LoginPage.module.scss';
-import useAuth from '../auth/hooks/useAuth';
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const auth = useAuth();
+  const location = useLocation();
 
   // Redirect to the signup page
   const handleSignUp = () => {
@@ -18,20 +17,10 @@ const LoginPage = () => {
     navigate('/forgot');
   };
 
-  const verifyRefreshToken = async () => {
-    try {
-      const refresh = await auth.refresh();
-      return refresh.accessToken && navigate('/');
-    } catch (err) {
-      return err;
-    }
-  };
-
   useEffect(() => {
-    verifyRefreshToken();
-    return () => {
-      return false;
-    };
+    if (!location.state?.sessionExpired) {
+      navigate('/');
+    }
   }, []);
 
   return (
