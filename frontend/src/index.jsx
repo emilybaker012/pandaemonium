@@ -8,15 +8,13 @@ import ReactQueryClientProvider from './common/providers/ReactQueryClientProvide
 import './common/styles/custom.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <AuthProvider>
-      <ReactQueryClientProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/*" element={<App />} />
-          </Routes>
-        </BrowserRouter>
-      </ReactQueryClientProvider>
-    </AuthProvider>
-  </React.StrictMode>,
+  <AuthProvider>
+    <ReactQueryClientProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<App />} />
+        </Routes>
+      </BrowserRouter>
+    </ReactQueryClientProvider>
+  </AuthProvider>,
 );

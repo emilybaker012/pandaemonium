@@ -95,7 +95,6 @@ const LoginForm = ({ className }) => {
         } else if (err.response?.status === 400) {
           setErrMsg(err.response?.data?.error);
         }
-        errRef?.current.focus();
       }
     }
   };
@@ -106,7 +105,6 @@ const LoginForm = ({ className }) => {
       autoComplete="off"
     >
       <LoginError
-        ref={errRef}
         aria-live="assertive"
         hidden={!errMsg}
       >{errMsg}
