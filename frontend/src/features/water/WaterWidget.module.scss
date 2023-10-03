@@ -1,0 +1,32 @@
+.waterWidgetBody {
+    font-size: 1.2em;
+    font-family: 'Itim', cursive;
+    user-select: none; /* Standard syntax */
+    display: flex;
+    flex-direction: column;
+}
+
+.waterIcon {
+    color: rgb(118, 171, 250);
+    &:hover{
+        color: darken(rgb(118, 171, 250), 10%);
+        transform: scale(1.2);
+    }
+
+    &:active{
+        color: darken(rgb(118, 171, 250), 15%);
+    }
+}
+
+.clearButton {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    color: var(--panda-lighter-gray);
+    font-size: .6rem;
+    &:hover{
+        transform: scale(1.2);
+    }
+    align-self: flex-end;
+
+}
