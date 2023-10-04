@@ -4,6 +4,8 @@
     user-select: none; /* Standard syntax */
     display: flex;
     flex-direction: column;
+    width: 100%;
+    padding: 12px;
 }
 
 .waterIcon {

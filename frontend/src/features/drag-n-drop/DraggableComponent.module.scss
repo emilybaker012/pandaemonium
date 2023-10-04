@@ -1,0 +1,30 @@
+.container{
+    -webkit-box-shadow: 5px 5px 21px -21px rgba(189,189,189,1);
+    -moz-box-shadow: 5px 5px 21px -21px rgba(189,189,189,1);
+    box-shadow: 5px 5px 21px -21px rgba(189,189,189,1);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.142)
+}
+
+.header{
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    height: 35px;
+    cursor: grab;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgba(151, 151, 151, 0.145);
+}
+
+.body{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border-radius: 0 0 6px 6px;
+    height: 100%;
+    align-items: center;
+}

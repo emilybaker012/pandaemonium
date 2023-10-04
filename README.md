@@ -1,2 +1,0 @@
-# pandaemonium
-A Fullstack dev
