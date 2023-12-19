@@ -1,11 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { Rnd } from 'react-rnd';
 import styles from './DraggableComponent.module.scss';
-import 'react-resizable/css/styles.css';
 
 const DraggableComponent = ({
   children, resizable, header, canBeResized = false,
