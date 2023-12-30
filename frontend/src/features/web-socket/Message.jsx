@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Container from 'react-bootstrap/Container';
-import Stack from 'react-bootstrap/Stack';
 import Form from 'react-bootstrap/Form';
 import { BiSend } from 'react-icons/bi';
 import styles from './Message.module.scss';
@@ -64,25 +63,26 @@ const Message = () => {
 
   return (
     <Container className={styles.messageContainer}>
-      <Stack>
+      <Form onSubmit={handleOnSubmit} className={styles.form}>
+        <Form.Control
+          as="textarea"
+          className={styles.textInput}
+          value={message}
+          placeholder="Type a message..."
+          ref={textRef}
+          onChange={(e) => { return setMessage(e.target.value); }}
+          onKeyDown={onKeyPressed}
+          spellCheck="false"
+        />
+        <BiSend
+          className={styles.send}
+          onClick={handleOnSubmit}
+        />
+      </Form>
+      <div className={styles.messages}>
         {events}
-        <Form onSubmit={handleOnSubmit} className={styles.form}>
-          <Form.Control
-            as="textarea"
-            className={styles.textInput}
-            value={message}
-            placeholder="Type a message..."
-            ref={textRef}
-            onChange={(e) => { return setMessage(e.target.value); }}
-            onKeyDown={onKeyPressed}
-            spellCheck="false"
-          />
-          <BiSend
-            className={styles.send}
-            onClick={handleOnSubmit}
-          />
-        </Form>
-      </Stack>
+      </div>
+
     </Container>
   );
 };

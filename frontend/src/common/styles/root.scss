@@ -1,6 +1,10 @@
 @import "./variables";
 //Root css variables that are defined by scss variables
 :root{
+    body{
+        font-family: 'Itim', cursive;
+    }
+
     //Colors
     --panda-primary : #{$primary-color};
     --panda-danger: #{$danger-color};
